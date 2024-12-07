@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Invitation Card</title>
+    <style>
+        /* General Reset */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f8f1e7;
+        }
+
+        /* Page 1: Name Selection */
+        .page1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F000%2F236%2F743%2Fnon_2x%2Fparty-background-vector.jpg&f=1&nofb=1&ipt=b29517ff0b6ae005e1ad68233c8496f2ed1c8deab51e4bcb3bf6438141acd90d&ipo=images); }
+
+        .page1 h1 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #8f17cb;
+            background-color:white;
+        }
+
+        .page1,h2{
+          margin-bottom: 25px;
+          font-size: 2rem;
+          color:deepskyblue;
+          background-color: white;
+          animation-duration: 2sec;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-container button:hover {
+            background-color: #45a049;
+        }
+
+        /* Page 2: Invitation */
+        .page2 {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card-container {
+            position: relative;
+            width: 600px;
+            height: 550px;
+            background: url('https://images.pexels.com/photos/3925875/pexels-photo-3925875.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center/cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+        }
+
+        /* Lens Hover Effect */
+        .lens-hover {
+            position: absolute;
+            top: 42%;
+            left: 42%;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease-in-out;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid transparent;
+        }
+
+        .lens-hover:hover {
+            transform: scale(2.7);
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 3px solid #7147c4;
+            box-shadow: 0 0 15px rgba(196, 126, 71, 0.7);
+            position:absolute;
+            top:32%;
+            left:33%;
+        }
+
+        .invitation-text {
+            text-align: center;
+            font-size: 4.5px;
+            font-weight: bold;
+            color: black;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            line-height: 1.5;
+        }
+
+        .lens-hover:hover .invitation-text {
+            opacity: 1;
+        }
+
+        .bpharmacy-batch {
+            color: rgb(255, 0, 30);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 7px;
+        }
+
+        .name {
+            color: #2b768b;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            text-decoration-line: underline;
+            text-underline-position: inherit;
+            text-decoration-color: aqua;
+        }
+
+        .Freshers-party {
+            font-size: 20px;
+            font-family: 'Dancing Script', cursive;
+            color: #0cff79;
+        }
+
+        .GMC {
+            color: green;
+        }
+
+        /* Go Back Button */
+        .go-back {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .go-back:hover {
+            background-color: #ff4b4b;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1: Name Selection -->
+    <div class="page1">
+        <h1>The B.Pharmacy Fresher's Party 2024 </h1>
+        <h2>Select your Name to Receive <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"The Invitation Card" </h2><br>
+        <div class="button-container">
+            <button onclick="showInvitation('Anjana Poudel')">Anjana Poudel</button>
+            <button onclick="showInvitation('Ankita Pahari')">Ankita Pahari</button>
+            <button onclick="showInvitation('Arbind Keshari')">Arbind Keshari</button>
+            <button onclick="showInvitation('Nirmala Parajuli')">Nirmala Parajuli</button>
+            <button onclick="showInvitation('Robin Shah')">Robin Shah</button> 
+            <button onclick="showInvitation('Manix Neupane')">Manix Neupane</button>
+            <button onclick="showInvitation('Sadkishya Poudel')">Sadkishya Poudel</button>
+            <button onclick="showInvitation('Jagat Janani Adhikari')">Jagat Janani Adhikari</button>
+            <button onclick="showInvitation('Ritu Karki')">Ritu Karki</button>
+            <button onclick="showInvitation('Pranisha Devkota')">Pranisha Devkota</button>
+        </div>
+    </div>
+
+    <!-- Page 2: Invitation -->
+    <div class="page2">
+        <div class="card-container">
+            <!-- Lens Hover Zone -->
+            <button class="go-back" onclick="goBack()">Go Back</button>
+            <div class="lens-hover">
+                <div class="invitation-text">
+                    <div class="bpharmacy-batch">THE B.PHARMACY BATCH 2022 <br>invites you</div>
+                    <br><div class="name" id="name-placeholder">[Name Placeholder]</div> 
+                    <strong>to the </strong><br><div class="Freshers-party">Fresher's Party</div> <br> Hotel Pauwa</strong> <br>Pokhara, Lakeside, Street no.1 <br>
+                    <br><strong>Date:</strong> December 12, 2024, Thursday<br>
+                    <strong>Time:</strong> 12:15 PM
+                    <br><br><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgmc.edu.np%2Fassets%2Fsite%2Fimg%2Flogo.png&f=1&nofb=1&ipt=b9aca9fca46c5c3392c9888210b6da924c836dec81ce4c6f49188e5f95c60f71&ipo=images" width="35px" height="31px">
+                    <div class="GMC" >Gandaki Medical College <br> Teaching Hospital and Research Center</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showInvitation(name) {
+            // Hide Page 1 and show Page 2
+            document.querySelector('.page1').style.display = 'none';
+            document.querySelector('.page2').style.display = 'flex';
+
+            // Replace the placeholder name with the selected name
+            document.getElementById('name-placeholder').textContent = name;
+        }
+
+        function goBack() {
+            // Hide Page 2 and return to Page 1
+            document.querySelector('.page2').style.display = 'none';
+            document.querySelector('.page1').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
